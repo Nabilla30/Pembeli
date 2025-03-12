@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pembelian Barang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('blue.jfif');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            width: 500px;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        label {
+            display: block;
+            text-align: left;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #add8e6; /* Baby blue */
+            color: black;
+        }
+        textarea {
+            resize: vertical;
+            height: 60px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function updateHarga() {
+            let barang = document.getElementById("barang").value;
+            let harga = document.getElementById("harga");
+
+            switch(barang) {
+                case "Sandal Velora":
+                    harga.value = "44000";
+                    break;
+                case "Sandal Kasual":
+                    harga.value = "37200";
+                    break;
+                case "Sandal Syaila":
+                    harga.value = "48000";
+                    break;
+                case "Sandal Wedges":
+                    harga.value = "48000";
+                    break;
+                default:
+                    harga.value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Pembelian Barang</h2>
+        <form action="#" method="post">
+            <label for="nama">Nama Pembeli:</label>
+            <input type="text" id="nama" name="nama" required>
+            
+            <label for="barang">Nama Barang:</label>
+            <select id="barang" name="barang" onchange="updateHarga()">
+                <option value="">-- Pilih Barang --</option>
+                <option value="Sandal Velora">Sandal Velora</option>
+                <option value="Sandal Kasual">Sandal Kasual</option>
+                <option value="Sandal Syaila">Sandal Syaila</option>
+                <option value="Sandal Wedges">Sandal Wedges</option>
+            </select>
+            
+            <label for="harga">Harga Produk (Rp):</label>
+            <input type="text" id="harga" name="harga" readonly>
+
+            <label for="ukuran">Ukuran:</label>
+            <select id="ukuran" name="ukuran">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+
+            <label for="jumlah">Jumlah:</label>
+            <input type="number" id="jumlah" name="jumlah" min="1" required>
+            
+            <label for="alamat">Alamat Pembeli:</label>
+            <textarea id="alamat" name="alamat" placeholder="Masukkan alamat lengkap..." required></textarea>
+            
+            <label for="metode">Metode Pembayaran:</label>
+            <select id="metode" name="metode">
+                <option value="transfer">Transfer Bank</option>
+                <option value="cod">Bayar di Tempat (COD)</option>
+                <option value="ewallet">E-Wallet</option>
+            </select>
+            
+            <button type="submit">Pesan Sekarang</button>
+        </form>
+    </div>
+</body>
+</html>
